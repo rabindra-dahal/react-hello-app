@@ -17,7 +17,7 @@ const Cat = (props: CatProps) => {
   );
 };
 
-const Index = () =>{
+const PropsDemo = () =>{
   return(
     <View style={{ flex: 1, flexDirection: 'column'}}>
       <Cat name="Maru" />
@@ -26,4 +26,4 @@ const Index = () =>{
   );
 };
 
-export default Index;
+export default PropsDemo;
