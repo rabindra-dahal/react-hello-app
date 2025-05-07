@@ -1,18 +1,21 @@
-import { Text, View } from "react-native";
+import React, { useState } from "react";
+import { Button, Text, View } from "react-native";
 
 export default function Index() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: 'red',
-      }}
-    >
-      <Text style={{ color: 'blue', fontSize: 40 }}>Hello, World!!!</Text>
-    </View>
-  );
+  const [count, setCount] = useState(0);
+  const titles = "Increment " + count + " by 1";
+    return (
+      <View style={{ 
+          flex: 1, 
+          backgroundColor: '#fff', 
+          alignItems: 'center',
+          justifyContent: 'center',
+          }}
+      >
+          <Text>You clicked {count} times.</Text>
+          <Button onPress={()=> setCount(count + 1)} title= {titles} />
+      </View>
+    );
 }
 
 
