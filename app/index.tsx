@@ -1,29 +1,26 @@
-import React from "react";
-import { Text, View } from 'react-native';
-
-type CatProps = { name : string; };
-const Cat = (props: CatProps) => {
-  return(
-    <View>
-      <Text style={{ 
-        color: 'blue', 
-        fontSize: 20, 
-        margin: 1, 
-        padding: 5,
-        }}>
-          Hello, I am {props.name} !
-      </Text>
-    </View>
-  );
-};
+import React, { useState } from "react";
+import { Text, TextInput, View } from 'react-native';
 
 const Index = () =>{
-  return(
-    <View style={{ flex: 1, flexDirection: 'column'}}>
-      <Cat name="Maru" />
-      <Cat name="Jelly" />
-    </View>
-  );
+  const [text, setText] = useState('');
+      const handleTextChange = (newText: string) =>{
+          setText(newText);
+      };
+  
+      return(
+          <View>
+              <TextInput
+                  style={{
+                      height: 40,
+                      borderColor: 'gray',
+                      borderWidth: 1,
+                  }}
+                  onChangeText={handleTextChange}
+                  value={text}
+                  />
+              <Text>You typed: {text}</Text>
+          </View>
+      );
 };
 
 export default Index;
