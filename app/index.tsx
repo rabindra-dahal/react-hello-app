@@ -1,6 +1,21 @@
 import React, { useState } from "react";
-import { Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'gray',
+
+    },
+    txtInput:{
+        height: 40,
+        width: 200,
+        borderColor: 'red',
+        borderWidth: 10,
+        color: 'blue'
+
+    },
+});
 const Index = () =>{
   const [text, setText] = useState('');
       const handleTextChange = (newText: string) =>{
@@ -8,13 +23,9 @@ const Index = () =>{
       };
   
       return(
-          <View>
+          <View style={styles.container}>
               <TextInput
-                  style={{
-                      height: 40,
-                      borderColor: 'gray',
-                      borderWidth: 1,
-                  }}
+                  style={styles.txtInput}
                   onChangeText={handleTextChange}
                   value={text}
                   />
