@@ -1,37 +1,56 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'gray',
+        backgroundColor: 'pink',
 
     },
     txtInput:{
-        height: 40,
-        width: 200,
+        height: 90,
+        width: '99%',
         borderColor: 'red',
-        borderWidth: 10,
-        color: 'blue'
+        borderWidth: 1,
+        color: 'blue',
+        fontSize: 25,
+        padding: 10,
+        margin: 3,
 
     },
 });
 const Index = () =>{
-  const [text, setText] = useState('');
-      const handleTextChange = (newText: string) =>{
-          setText(newText);
-      };
-  
-      return(
-          <View style={styles.container}>
-              <TextInput
-                  style={styles.txtInput}
-                  onChangeText={handleTextChange}
-                  value={text}
-                  />
-              <Text>You typed: {text}</Text>
-          </View>
-      );
+  const [userNameText, setUserNameText] = useState('');
+  const [passwordText, setPasswordText] = useState('');
+  const handleUserNameTextChange = (newText: string) =>{
+    setUserNameText(newText);
+  };
+
+  const handlePasswordTextChange = (newText: string) =>{
+    setPasswordText(newText);
+  };
+
+  return(
+      <View style={styles.container}>
+          <TextInput
+              style={styles.txtInput}
+              onChangeText={handleUserNameTextChange}
+              value={userNameText}
+              placeholder="User Name"
+              />
+            <TextInput
+              style={styles.txtInput}
+              textContentType='password'
+              placeholderTextColor={'maroon'}
+              secureTextEntry= {true}
+              onChangeText={handlePasswordTextChange}
+              value={passwordText}
+              placeholder="Password"
+              passwordRules={"required: digit; minlength: 3;"}
+              
+              />
+      </View>
+  );
 };
 
 export default Index;
